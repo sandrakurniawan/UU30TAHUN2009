@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UU No. 30 Tahun 2009 - Ketenagalistrikan</title>
+    <style>
+        * {
+            margin: 0;
+ padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e40af;
+ --secondary: #64748b;
+            --accent: #f59e0b;
+            --context: #3b82f6;
+            --actors: #10b981;
+            --rules: #f59e0b;
+            --details: #ef4444;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+ }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ line-height: 1.7;
+            color: #1e293b;
+            background: var(--bg);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
+ color: white;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+ }
+
+        .header-content {
+            max-width: 1200px;
+ margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+ margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+ font-size: 1rem;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 1200px;
+ margin: -1.5rem auto 0;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+ }
+
+        .search-box {
+            background: white;
+ padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 1rem;
+ }
+
+        #searchInput {
+            flex: 1;
+ padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+ }
+
+        #searchInput:focus {
+            outline: none;
+ border-color: var(--primary);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+ background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+ }
+
+        .btn:hover {
+            background: #1e3a8a;
+ }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+ margin: 3rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+ }
+
+        /* Sidebar TOC */
+        .toc {
+            position: sticky;
+ top: 2rem;
+            height: fit-content;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+ }
+
+        .toc h2 {
+            font-size: 1.2rem;
+ margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .toc-list {
+            list-style: none;
+ max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.5rem;
+ }
+
+        .toc-list a {
+            color: var(--secondary);
+ text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+ }
+
+        .toc-list a:hover {
+            background: #f1f5f9;
+ color: var(--primary);
+            padding-left: 1rem;
+        }
+
+        /* Content */
+        .content {
+            background: var(--card-bg);
+ padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 2rem;
+ background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+ }
+
+        .intro h2 {
+            color: var(--primary);
+ margin-bottom: 1rem;
+        }
+
+        .intro-grid {
+            display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .intro-card {
+            background: white;
+ padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .intro-card h3 {
+            font-size: 1rem;
+ color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pasal Section */
+        .pasal {
+            margin-bottom: 3rem;
+ padding-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .pasal:last-child {
+            border-bottom: none;
+ }
+
+        .pasal-header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+ color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pasal-number {
+            font-size: 0.9rem;
+ opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .pasal-title {
+            font-size: 1.5rem;
+ font-weight: 600;
+        }
+
+        /* CARD Framework */
+        .card-grid {
+            display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .info-card {
+            padding: 1.5rem;
+ border-radius: 10px;
+            border-left: 5px solid;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+ }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+ box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .info-card.context {
+            border-color: var(--context);
+ background: linear-gradient(135deg, #eff6ff 0%, white 100%);
+        }
+
+        .info-card.actors {
+            border-color: var(--actors);
+ background: linear-gradient(135deg, #ecfdf5 0%, white 100%);
+        }
+
+        .info-card.rules {
+            border-color: var(--rules);
+ background: linear-gradient(135deg, #fffbeb 0%, white 100%);
+        }
+
+        .info-card.details {
+            border-color: var(--details);
+ background: linear-gradient(135deg, #fef2f2 0%, white 100%);
+        }
+
+        .card-label {
+            font-size: 0.85rem;
+ font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+ }
+
+        .context .card-label { color: var(--context);
+ }
+        .actors .card-label { color: var(--actors);
+ }
+        .rules .card-label { color: var(--rules);
+ }
+        .details .card-label { color: var(--details);
+ }
+
+        .card-label::before {
+            content: '';
+ width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .card-content ul {
+            list-style: none;
+ padding-left: 0;
+        }
+
+        .card-content li {
+            padding: 0.4rem 0;
+ padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card-content li::before {
+            content: '•';
+ position: absolute;
+            left: 0.5rem;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        .pasal-nav {
+            display: flex;
+ justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e2e8f0;
+ }
+
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+ background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+            font-weight: 500;
+ }
+
+        .nav-btn:hover {
+            background: #1e3a8a;
+ }
+
+        .nav-btn.disabled {
+            background: #cbd5e1;
+ pointer-events: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+ color: white;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+ margin: 0 auto;
+        }
+
+        .disclaimer {
+            background: rgba(239, 68, 68, 0.1);
+ border-left: 4px solid #ef4444;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: left;
+            font-size: 0.9rem;
+ }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+ }
+
+            .toc {
+                position: static;
+ margin-bottom: 2rem;
+            }
+
+            .toc-list {
+                max-height: 300px;
+ }
+
+            h1 {
+                font-size: 1.5rem;
+ }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+ }
+        }
+
+        @media (max-width: 640px) {
+            .search-box {
+                flex-direction: column;
+ }
+
+            .pasal-nav {
+                flex-direction: column;
+ gap: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+ }
+        }
+
+        /* Scrollbar */
+        .toc-list::-webkit-scrollbar {
+            width: 6px;
+ }
+
+        .toc-list::-webkit-scrollbar-track {
+            background: #f1f5f9;
+ border-radius: 10px;
+        }
+
+        .toc-list::-webkit-scrollbar-thumb {
+            background: var(--primary);
+ border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🔌 UU No. 30 Tahun 2009</h1>
+            <p class="subtitle">Undang-Undang Republik Indonesia tentang Ketenagalistrikan</p>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari kata kunci dalam UU... (contoh: 
+ izin, tarif, sanksi)">
+            <button class="btn" onclick="searchContent()">🔍 Cari</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="toc">
+            <h2>📑 Daftar Isi</h2>
+            <ul class="toc-list" id="tocList">
+                <li><a href="#intro">Pengantar</a></li>
+ 
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="intro" class="intro">
+                <h2>Tentang Undang-Undang Ini</h2>
+                <p>UU No. 30 Tahun 2009 mengatur seluruh aspek ketenagalistrikan di Indonesia, mulai dari 
+ pembangkitan hingga distribusi listrik kepada konsumen. Undang-undang ini bertujuan menjamin ketersediaan listrik yang cukup, berkualitas, dan terjangkau untuk kesejahteraan rakyat.</p>
+                
+                <div class="intro-grid">
+                    <div class="intro-card">
+                        <h3>🎯 Tujuan</h3>
+  
+                       <p>Menjamin ketersediaan tenaga listrik yang cukup, berkualitas baik, dan harga wajar untuk meningkatkan kesejahteraan rakyat secara adil dan merata.</p>
+                    </div>
+                    <div class="intro-card">
+                   
+      <h3>⚖️ Prinsip</h3>
+                        <p>Menganut asas manfaat, efisiensi berkeadilan, berkelanjutan, optimalisasi ekonomi, dan keamanan serta keselamatan.</p>
+                    </div>
+                    <div class="intro-card">
+                  
+       <h3>🏢 Penyelenggara</h3>
+                        <p>Dikuasai negara dan dilaksanakan oleh Pemerintah, pemerintah daerah, BUMN, BUMD, swasta, koperasi, dan masyarakat.</p>
+                    </div>
+                    <div class="intro-card">
+               
+         <h3>📋 Cakupan</h3>
+                        <p>Mengatur pembangkitan, transmisi, distribusi, penjualan listrik, perizinan, tarif, keselamatan, hingga sanksi pelanggaran.</p>
+                    </div>
+                </div>
+            </section>
+
+       
+      <div id="pasalContainer"></div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Rangkuman Interaktif UU Ketenagalistrikan</strong></p>
+            <p style="margin-top: 0.5rem;
+ opacity: 0.8;">Dibuat untuk memudahkan pemahaman masyarakat terhadap regulasi ketenagalistrikan di Indonesia</p>
+            
+            <div class="disclaimer">
+                <strong>⚠️ Disclaimer:</strong> Ini adalah rangkuman non-resmi untuk tujuan edukasi. Untuk keperluan legal dan referensi resmi, silakan merujuk ke dokumen Undang-Undang No. 30 Tahun 2009 yang asli.
+            </div>
+        </div>
+    
+ </footer>
+
+    <script>
+        // Data Pasal (ini akan diisi dari 10 file txt Anda)
+        const pasalData = [
+            {
+                number: 1,
+                title: "Definisi Istilah",
+                context: "Pasal ini mendefinisikan 
+ 18 istilah kunci dalam UU, termasuk Ketenagalistrikan, Tenaga Listrik, Usaha penyediaan, tahapan kegiatan (Pembangkitan, Transmisi, Distribusi, Penjualan), dan berbagai jenis perizinan.",
+                actors: ["Konsumen", "Pemerintah", "Pemerintah Daerah", "Menteri", "Badan Usaha"],
+                rules: ["Membedakan Ganti Rugi (pelepasan hak tanah) dengan Kompensasi (penggunaan tidak langsung tanpa pelepasan hak)", "Menetapkan definisi Izin Usaha Penyediaan Tenaga Listrik dan Izin Operasi"],
+                details: 
+ "Pasal ini merupakan dasar pemahaman istilah-istilah yang digunakan di seluruh UU ini."
+            },
+            {
+                number: 2,
+                title: "Asas dan Tujuan Pembangunan",
+                context: "Menetapkan 9 asas pembangunan ketenagalistrikan: manfaat, efisiensi berkeadilan, berkelanjutan, optimalisasi ekonomi, 
+ keamanan, dan keselamatan. Tujuannya adalah menjamin ketersediaan listrik cukup, berkualitas, dan harga wajar.",
+                actors: ["Pemerintah", "Pemerintah Daerah", "Badan Usaha", "Masyarakat"],
+                rules: ["Pembangunan harus mengikuti 9 asas yang ditetapkan", "Tujuan untuk meningkatkan kesejahteraan rakyat secara adil dan merata", "Mewujudkan pembangunan berkelanjutan"],
+                details: "Asas-asas ini menjadi pedoman dalam setiap kebijakan dan pelaksanaan ketenagalistrikan."
+     
+        },
+            {
+                number: 3,
+                title: "Penguasaan Negara",
+                context: "Penyediaan tenaga listrik dikuasai oleh negara dan diselenggarakan oleh Pemerintah dan pemerintah daerah berdasarkan prinsip otonomi daerah.",
+             
+    actors: ["Negara", "Pemerintah Pusat", "Pemerintah Daerah"],
+                rules: ["Pemerintah dan pemerintah daerah berwenang menetapkan kebijakan, pengaturan, pengawasan, dan melaksanakan usaha penyediaan tenaga listrik"],
+                details: "Prinsip penguasaan negara tidak berarti monopoli, tetapi pengaturan dan pengawasan untuk kepentingan umum."
+            },
+            {
+        
+         number: 4,
+                title: "Pelaksana Usaha Penyediaan",
+                context: "Mengatur siapa saja yang dapat melaksanakan usaha penyediaan tenaga listrik dan kewajiban penyediaan dana untuk masyarakat tidak mampu serta daerah terpencil.",
+                actors: ["BUMN", "BUMD", "Badan Usaha Swasta", "Koperasi", "Swadaya Masyarakat", "Pemerintah", "Pemerintah Daerah"],
+        
+         rules: ["BUMN dan BUMD melaksanakan usaha penyediaan", "Swasta, koperasi, dan swadaya masyarakat dapat berpartisipasi", "Pemerintah wajib menyediakan dana untuk: (1) kelompok tidak mampu, (2) daerah belum berkembang, (3) daerah terpencil dan perbatasan, (4) listrik perdesaan"],
+                details: "Keterlibatan multi-stakeholder untuk menjangkau seluruh wilayah Indonesia."
+            },
+            {
+           
+      number: 5,
+                title: "Kewenangan Pemerintah",
+                context: "Merinci pembagian kewenangan antara Pemerintah Pusat, Provinsi, dan Kabupaten/Kota dalam mengatur ketenagalistrikan.",
+                actors: ["Pemerintah Pusat", "Pemerintah Provinsi", "Pemerintah Kabupaten/Kota", "DPR RI", "DPRD"],
+                rules: ["Pusat: kebijakan nasional, standar, tarif, RUKN, 
+ wilayah usaha lintas provinsi/BUMN, izin jual beli lintas negara", "Provinsi: Perda, RUKD Provinsi, IUPTL/IO lintas kab/kota, tarif konsumen, pengawasan", "Kab/Kota: Perda, RUKD Kab/Kota, IUPTL/IO dalam wilayah, tarif konsumen, izin jasa penunjang, pengawasan"],
+                details: "Sistem desentralisasi dengan pembagian kewenangan yang jelas berdasarkan skala dan wilayah."
+            },
+            {
+                number: 6,
+ 
+                title: "Sumber Energi Primer",
+                context: "Mengatur pemanfaatan sumber energi untuk pembangkit listrik, dengan mengutamakan energi terbarukan dan kepentingan nasional.",
+                actors: ["Pemerintah", "Badan Usaha Pembangkit"],
+                rules: ["Sumber energi primer (dalam/luar negeri) dimanfaatkan optimal sesuai kebijakan energi nasional", "Mengutamakan sumber energi baru 
+ dan energi terbarukan", "Sumber energi dalam negeri diutamakan untuk kepentingan nasional"],
+                details: "Mendorong penggunaan energi hijau dan mengurangi ketergantungan pada energi fosil."
+            },
+            {
+                number: 7,
+                title: "Rencana Umum Ketenagalistrikan",
+    
+             context: "Mengatur penyusunan dan penetapan Rencana Umum Ketenagalistrikan di tingkat nasional dan daerah sebagai pedoman pembangunan.",
+                actors: ["Pemerintah", "DPR RI", "Pemerintah Daerah", "DPRD", "Menteri"],
+                rules: ["RUKN disusun berdasarkan kebijakan energi nasional, ditetapkan Pemerintah setelah konsultasi DPR", "Penyusunan RUKN melibatkan pemerintah daerah", "RUKD disusun berdasarkan RUKN, ditetapkan pemda setelah konsultasi DPRD", "Pedoman penyusunan ditetapkan Menteri"],
+     
+             details: "Rencana ini menjadi acuan pengembangan infrastruktur ketenagalistrikan jangka panjang."
+            },
+            {
+                number: 8,
+                title: "Jenis Usaha Ketenagalistrikan",
+                context: "Membagi usaha ketenagalistrikan 
+ menjadi dua kategori besar.",
+                actors: ["Semua Pelaku Usaha"],
+                rules: ["Usaha Penyediaan Tenaga Listrik", "Usaha Penunjang Tenaga Listrik"],
+                details: "Pembagian ini untuk mengatur perizinan dan kewajiban masing-masing jenis usaha."
+            },
+            {
+    
+             number: 9,
+                title: "Kategori Usaha Penyediaan",
+                context: "Membagi usaha penyediaan tenaga listrik berdasarkan tujuan penggunaan.",
+                actors: ["Badan Usaha", "Instansi", "Perseorangan"],
+                rules: ["Usaha Penyediaan untuk Kepentingan Umum", "Usaha Penyediaan 
+ untuk Kepentingan Sendiri"],
+                details: "Kepentingan umum berarti menjual listrik ke masyarakat/konsumen, sedangkan kepentingan sendiri untuk kebutuhan internal."
+            },
+            {
+                number: 10,
+                title: "Usaha untuk Kepentingan Umum",
+        
+         context: "Mengatur jenis kegiatan dalam usaha penyediaan untuk kepentingan umum dan prinsip wilayah usaha.",
+                actors: ["Badan Usaha Penyedia Listrik", "Pemerintah"],
+                rules: ["Meliputi: pembangkitan, transmisi, distribusi, dan/atau penjualan", "Dapat dilakukan terintegrasi atau terpisah", "Satu badan usaha dalam satu wilayah usaha", "Wilayah usaha ditetapkan Pemerintah"],
+                details: "Prinsip 'satu wilayah 
+ satu badan usaha' untuk menghindari persaingan tidak sehat dan menjamin keandalan."
+            },
+            {
+                number: 11,
+                title: "Pelaksana Usaha Kepentingan Umum",
+                context: "Menetapkan prioritas pelaksana usaha penyediaan untuk kepentingan umum dan kewajiban Pemerintah.",
+  
+               actors: ["BUMN (prioritas pertama)", "BUMD", "Swasta", "Koperasi", "Swadaya Masyarakat", "Pemerintah"],
+                rules: ["BUMN mendapat prioritas pertama", "Untuk wilayah belum terlayani: BUMD, swasta, koperasi diberi kesempatan", "Jika tidak ada badan usaha lain, Pemerintah wajib menugasi BUMN"],
+                details: "BUMN (terutama PLN) menjadi tulang punggung penyediaan listrik nasional."
+            },
+ 
+            {
+                number: 12,
+                title: "Usaha untuk Kepentingan Sendiri",
+                context: "Mengatur cakupan kegiatan usaha penyediaan tenaga listrik untuk kepentingan sendiri (bukan untuk dijual).",
+                actors: ["Instansi", "Perusahaan", "Perseorangan", "Lembaga"],
+   
+              rules: ["Opsi 1: Hanya pembangkitan", "Opsi 2: Pembangkitan dan distribusi", "Opsi 3: Pembangkitan, transmisi, dan distribusi"],
+                details: "Contoh: pabrik yang membangun pembangkit sendiri untuk operasional internal."
+            },
+            {
+                number: 13,
+      
+           title: "Pelaksana Usaha Kepentingan Sendiri",
+                context: "Menetapkan siapa saja yang dapat melakukan usaha penyediaan untuk kepentingan sendiri.",
+                actors: ["Instansi Pemerintah", "Pemerintah Daerah", "BUMN", "BUMD", "Swasta", "Koperasi", "Perseorangan", "Lembaga/Badan Usaha Lainnya"],
+                rules: ["Semua pihak dapat melakukan usaha ini sesuai kebutuhan masing-masing"],
+      
+           details: "Fleksibilitas tinggi untuk kemandirian energi."
+            },
+            {
+                number: 14,
+                title: "Peraturan Pelaksanaan Usaha Penyediaan",
+                context: "Mengamanatkan penyusunan Peraturan Pemerintah untuk mengatur detail 
+ usaha penyediaan.",
+                actors: ["Pemerintah"],
+                rules: ["Ketentuan Pasal 9-13 diatur lebih lanjut dengan PP"],
+                details: "PP akan memberikan teknis operasional yang lebih detail."
+            },
+            {
+          
+       number: 15,
+                title: "Jenis Usaha Penunjang",
+                context: "Membagi usaha penunjang tenaga listrik menjadi dua jenis.",
+                actors: ["Pelaku Usaha Penunjang"],
+                rules: ["Usaha Jasa Penunjang Tenaga Listrik", "Usaha Industri Penunjang Tenaga Listrik"],
+     
+             details: "Usaha penunjang mendukung operasional ketenagalistrikan tetapi bukan penyedia listrik langsung."
+            },
+            // KELANJUTAN DATA PASAL (Tambahkan setelah pasal 16 yang terpotong)
+	// Lengkapi pasal 16 yang terpotong:
+	{
+    	number: 16,
+    	title: "Usaha Jasa Penunjang",
+    	context: "Merinci jenis kegiatan jasa penunjang dan persyaratan pelaksanaannya.",
+   	actors: ["BUMN", "BUMD", "Swasta", "Koperasi"],
+    	rules: [
+     
+     "Jenis jasa: konsultansi, pembangunan, pemasangan, pengujian, operasional, pemeliharaan, penelitian, pelatihan, laboratorium, sertifikasi peralatan dan kompetensi",
+        "Harus memiliki sertifikasi, klasifikasi, dan kualifikasi sesuai peraturan",
+        "Wajib mengutamakan produk dan potensi dalam negeri"
+    ],
+    details: "Ketentuan sertifikasi, klasifikasi, dan kualifikasi diatur lebih lanjut dengan PP."
+},
+{
+    number: 17,
+    title: "Usaha Industri Penunjang",
+    context: "Mengatur usaha industri peralatan dan pemanfaat tenaga listrik.",
+    actors: ["BUMN", "BUMD", "Swasta", "Koperasi"],
+    
+ rules: [
+        "Meliputi: industri peralatan tenaga listrik dan/atau industri pemanfaat tenaga listrik",
+        "Wajib mengutamakan produk dan potensi dalam negeri",
+        "Dilaksanakan sesuai ketentuan peraturan perundang-undangan"
+    ],
+    details: "Mendukung pengembangan industri dalam negeri di bidang ketenagalistrikan."
+},
+{
+    number: 18,
+    title: "Kewajiban Perizinan",
+    context: "Menegaskan bahwa semua usaha ketenagalistrikan harus berizin.",
+    actors: ["Semua Pelaku Usaha Ketenagalistrikan"],
+    rules: ["Usaha penyediaan dan penunjang tenaga 
+ listrik hanya boleh dilaksanakan setelah mendapat izin usaha"],
+    details: "Tanpa izin usaha, kegiatan tidak dapat dilakukan secara legal."
+},
+{
+    number: 19,
+    title: "Jenis Izin Penyediaan",
+    context: "Menetapkan dua jenis izin untuk usaha penyediaan tenaga listrik.",
+    actors: ["Pemegang Izin Usaha", "Pemerintah", "Pemerintah Daerah"],
+    rules: [
+        "Izin terdiri dari: Izin Usaha Penyediaan Tenaga Listrik (IUPTL) dan Izin Operasi (IO)",
+        "Setiap pelaku usaha penyediaan untuk kepentingan umum wajib memiliki IUPTL"
+   
+     ],
+    details: "IUPTL untuk legalitas usaha, IO untuk legalitas operasional pembangkit."
+},
+{
+    number: 20,
+    title: "IUPTL Berdasarkan Jenis Usaha",
+    context: "IUPTL ditetapkan sesuai jenis kegiatan yang dilakukan.",
+    actors: ["Pemegang Izin", "Pemerintah"],
+    rules: ["IUPTL diberikan untuk satu atau gabungan: pembangkitan, transmisi, distribusi, dan/atau penjualan"],
+    details: "Fleksibilitas dalam pemberian izin sesuai model bisnis."
+},
+{
+    number: 21,
+    title: "Kewenangan Penetapan IUPTL",
+    context: "Pemerintah atau pemerintah daerah menetapkan IUPTL sesuai kewenangannya.",
+    actors: 
+ ["Pemerintah Pusat", "Pemerintah Provinsi", "Pemerintah Kabupaten/Kota"],
+    rules: ["Penetapan IUPTL sesuai dengan kewenangan masing-masing tingkat pemerintahan"],
+    details: "Mengacu pada pembagian kewenangan di Pasal 5."
+},
+{
+    number: 22,
+    title: "Izin Operasi Pembangkit",
+    context: "Izin operasi wajib untuk pembangkit dengan kapasitas tertentu.",
+    actors: ["Pemegang Izin Operasi", "Menteri"],
+    rules: ["IO wajib untuk pembangkit dengan kapasitas tertentu", "Kapasitas tertentu diatur dengan Peraturan Menteri"],
+    details: "Menjamin keamanan dan kelayakan operasional pembangkit listrik."
+},
+{
+    number: 23,
+    title: "Penetapan dan 
+ Syarat IO",
+    context: "Mengatur prosedur penetapan Izin Operasi dan hak pemegang IO.",
+    actors: ["Pemegang IO", "Pemerintah", "Pemerintah Daerah"],
+    rules: [
+        "IO ditetapkan oleh Pemerintah/pemda sesuai kewenangan",
+        "Syarat: pemenuhan administratif, teknis, dan lingkungan",
+        "Pemegang IO dapat menjual kelebihan listrik setelah dapat persetujuan"
+    ],
+    details: "Penjualan kelebihan listrik harus seizin pemerintah yang berwenang."
+},
+{
+    number: 24,
+    title: "PP tentang IUPTL dan 
+ IO",
+    context: "Mengamanatkan Peraturan Pemerintah untuk mengatur teknis IUPTL dan IO.",
+    actors: ["Pemerintah"],
+    rules: ["Ketentuan lebih lanjut IUPTL dan IO diatur dengan PP"],
+    details: "PP akan memberikan prosedur dan persyaratan detail."
+},
+{
+    number: 25,
+    title: "Izin Usaha Penunjang",
+    context: "Mengatur perizinan untuk usaha jasa dan industri penunjang.",
+    actors: ["Pelaku Usaha Penunjang", "Pemerintah", "Pemerintah Daerah"],
+    rules: [
+        "Usaha jasa penunjang wajib berizin dari Pemerintah/pemda",
+     
+     "Penetapan izin sesuai ketentuan peraturan perundang-undangan"
+    ],
+    details: "Memastikan kualitas dan kompetensi penyedia jasa penunjang."
+},
+{
+    number: 26,
+    title: "PP tentang Izin Jasa Penunjang",
+    context: "Mengamanatkan PP untuk mengatur izin usaha jasa penunjang.",
+    actors: ["Pemerintah"],
+    rules: ["Ketentuan lebih lanjut diatur dengan PP"],
+    details: "PP akan mengatur prosedur dan persyaratan teknis."
+},
+{
+    number: 27,
+    title: "Hak Pemegang Izin",
+    context: "Memberikan hak kepada pemegang izin untuk melintasi/menggunakan properti 
+ dalam pelaksanaan usaha.",
+    actors: ["Pemegang IUPTL untuk Kepentingan Umum", "Pemilik Tanah/Properti"],
+    rules: [
+        "Hak melintasi/menggunakan: sungai, danau, laut, jalan umum, jalan kereta api, tempat umum/perorangan, tanah, bangunan",
+        "Hak memotong/menebang tanaman yang menghalangi",
+        "Pelaksanaan harus berdasarkan peraturan perundang-undangan"
+    ],
+    details: "Hak ini untuk pembangunan infrastruktur transmisi dan distribusi, tetapi harus kompensasi sesuai Pasal 30."
+},
+{
+    number: 28,
+    title: "Kewajiban Pemegang Izin",
+   
+  context: "Menetapkan empat kewajiban utama pemegang izin usaha penyediaan.",
+    actors: ["Pemegang IUPTL"],
+    rules: [
+        "Menyediakan tenaga listrik sesuai standar mutu dan keandalan",
+        "Memberikan pelayanan terbaik kepada konsumen dan masyarakat",
+        "Memenuhi ketentuan keselamatan ketenagalistrikan",
+        "Mengutamakan produk dan potensi dalam negeri"
+    ],
+    details: "Kewajiban ini menjamin kualitas layanan dan keselamatan."
+},
+{
+    number: 29,
+    title: "Hak dan 
+ Kewajiban Konsumen",
+    context: "Mengatur hak dan kewajiban konsumen tenaga listrik secara seimbang.",
+    actors: ["Konsumen", "Pemegang Izin", "Menteri"],
+    rules: [
+        "Hak konsumen: pelayanan baik, listrik terus-menerus dengan mutu baik, harga wajar, perbaikan gangguan, ganti rugi pemadaman akibat kesalahan pemegang izin",
+        "Kewajiban konsumen: pengamanan bahaya, keamanan instalasi, memanfaatkan sesuai peruntukan, membayar tagihan, menaati persyaratan teknis",
+        "Konsumen bertanggung jawab atas kerugian akibat kelalaiannya"
+    ],
+    details: "Ketentuan tanggung 
+ jawab konsumen diatur lebih lanjut dengan Peraturan Menteri."
+},
+{
+    number: 30,
+    title: "Ganti Rugi dan Kompensasi Tanah",
+    context: "Mengatur kewajiban pemberian ganti rugi atau kompensasi atas penggunaan tanah.",
+    actors: ["Pemegang Izin", "Pemilik Tanah", "Pemegang Hak Tanah"],
+    rules: [
+        "Penggunaan tanah harus dengan ganti rugi atau kompensasi",
+        "Ganti rugi: untuk tanah, bangunan, tanaman yang digunakan langsung",
+        "Kompensasi: untuk penggunaan tidak langsung (misal: dilintasi transmisi) yang kurangi 
+ nilai ekonomis",
+        "Masalah tanah harus diselesaikan sebelum memulai kegiatan",
+        "Tanah ulayat diselesaikan sesuai hukum adat setempat"
+    ],
+    details: "Perhitungan kompensasi diatur dengan PP.
+ Ganti rugi/kompensasi dibebankan kepada pemegang izin."
+},
+{
+    number: 31,
+    title: "Pengecualian Ganti Rugi",
+    context: "Tidak ada kewajiban ganti rugi untuk bangunan/tanaman di atas tanah berizin yang sudah diselesaikan kompensasinya.",
+    actors: ["Pemegang Izin", "Pihak yang Mendirikan Bangunan Sengaja"],
+    rules: ["Tidak ada ganti rugi/kompensasi untuk bangunan/tanaman yang sengaja didirikan di tanah berizin yang sudah selesai kompensasinya"],
+    details: "Mencegah penyalahgunaan untuk mendapat kompensasi berlipat."
+},
+{
+    number: 32,
+    title: "Tata Cara Ganti Rugi",
+    context: "Mengatur prosedur penetapan dan pembayaran 
+ ganti rugi/kompensasi.",
+    actors: ["Pemegang Izin", "Pemerintah"],
+    rules: [
+        "Penetapan dan tata cara pembayaran sesuai peraturan perundang-undangan",
+        "Ganti rugi/kompensasi dibebankan kepada pemegang izin"
+    ],
+    details: "Pemegang izin yang bertanggung jawab finansial atas ganti rugi."
+},
+{
+    number: 33,
+    title: "Harga Jual dan Sewa Jaringan",
+    context: "Mengatur prinsip penetapan harga jual tenaga listrik dan sewa jaringan.",
+    actors: ["Pemegang Izin", "Pemerintah", "Pemerintah Daerah"],
+    rules: 
+ [
+        "Harga jual dan sewa jaringan berdasarkan prinsip usaha yang sehat",
+        "Harus mendapat persetujuan Pemerintah/pemda yang berwenang",
+        "Dilarang menerapkan harga tanpa persetujuan"
+    ],
+    details: "Harga jual antar badan usaha (wholesales), berbeda dengan tarif konsumen."
+},
+{
+    number: 34,
+    title: "Tarif Tenaga Listrik",
+    context: "Mengatur kewenangan penetapan tarif untuk konsumen akhir.",
+    actors: ["Pemerintah", "DPR RI", "Pemerintah Daerah", "DPRD"],
+    rules: [
+  
+       "Pemerintah menetapkan tarif dengan persetujuan DPR RI",
+        "Pemda menetapkan tarif dengan persetujuan DPRD (berdasarkan pedoman Pemerintah)",
+        "Jika pemda tidak mampu, Pemerintah dapat menetapkan dengan persetujuan DPR",
+        "Penetapan memperhatikan keseimbangan kepentingan nasional, daerah, konsumen, dan pelaku usaha",
+        "Tarif dapat berbeda di setiap daerah dalam satu wilayah usaha"
+    ],
+    details: "Tarif ini yang dikenakan ke konsumen akhir (rumah tangga, bisnis, industri)."
+},
+{
+  
+   number: 35,
+    title: "Larangan Tarif Tidak Sesuai",
+    context: "Melarang pemegang izin menerapkan tarif yang tidak sesuai penetapan pemerintah.",
+    actors: ["Pemegang Izin"],
+    rules: ["Dilarang menerapkan tarif yang tidak sesuai dengan penetapan Pemerintah/pemda"],
+    details: "Pelanggaran dapat dikenai sanksi administratif."
+},
+{
+    number: 36,
+    title: "PP tentang Harga dan Tarif",
+    context: "Mengamanatkan PP untuk mengatur tata cara penetapan harga, sewa, dan tarif.",
+    actors: ["Pemerintah"],
+    rules: ["Ketentuan lebih lanjut diatur dengan PP"],
+   
+  details: "PP akan mengatur mekanisme dan formula perhitungan."
+},
+{
+    number: 37,
+    title: "Izin Jual Beli Lintas Negara",
+    context: "Jual beli listrik lintas negara hanya untuk pemegang izin dengan izin khusus dari Pemerintah.",
+    actors: ["Pemegang IUPTL", "Pemerintah"],
+    rules: [
+        "Hanya pemegang IUPTL yang dapat jual beli lintas negara",
+        "Wajib berdasarkan izin dari Pemerintah"
+    ],
+    details: "Mengatur impor dan ekspor listrik untuk kedaulatan energi."
+},
+{
+    
+ number: 38,
+    title: "Bentuk Jual Beli Lintas Negara",
+    context: "Jual beli lintas negara dapat berupa impor atau ekspor.",
+    actors: ["Pemegang Izin Jual Beli Lintas Negara"],
+    rules: ["Bentuk: pembelian (impor) atau penjualan (ekspor) tenaga listrik"],
+    details: "Dua arah transaksi dengan negara lain."
+},
+{
+    number: 39,
+    title: "Syarat Pembelian (Impor)",
+    context: "Menetapkan 6 syarat ketat untuk impor listrik demi kedaulatan energi.",
+    actors: ["Pemegang Izin Impor", "Pemerintah"],
+    rules: [
+      
+   "Syarat impor: (a) kebutuhan lokal belum terpenuhi, (b) hanya penunjang, (c) tidak merugikan negara/kedaulatan/keamanan",
+        "(d) meningkatkan mutu dan keandalan setempat, (e) tidak abaikan kemampuan dalam negeri, (f) tidak timbulkan ketergantungan"
+    ],
+    details: "Impor hanya boleh sebagai solusi sementara atau emergency."
+},
+{
+    number: 40,
+    title: "Syarat Penjualan (Ekspor)",
+    context: "Menetapkan syarat ekspor listrik agar tidak ganggu pasokan dalam negeri.",
+    actors: ["Pemegang Izin Ekspor", "Pemerintah"],
+    rules: [
+       
+  "(a) Kebutuhan lokal dan sekitar sudah terpenuhi",
+        "(b) Harga jual tidak mengandung subsidi",
+        "(c) Tidak ganggu mutu dan keandalan lokal"
+    ],
+    details: "Prioritas utama untuk kebutuhan domestik."
+},
+{
+    number: 41,
+    title: "PP tentang Jual Beli Lintas Negara",
+    context: "Mengamanatkan PP untuk mengatur tata cara jual beli lintas negara.",
+    actors: ["Pemerintah"],
+    rules: ["Ketentuan Pasal 37-40 diatur lebih lanjut dengan PP"],
+    details: "PP akan 
+ mengatur prosedur dan mekanisme detail."
+},
+{
+    number: 42,
+    title: "Kewajiban Lingkungan Hidup",
+    context: "Semua kegiatan usaha ketenagalistrikan wajib memenuhi ketentuan lingkungan hidup.",
+    actors: ["Semua Pelaku Usaha Ketenagalistrikan"],
+    rules: ["Wajib memenuhi semua ketentuan peraturan perundang-undangan di bidang lingkungan hidup"],
+    details: "Termasuk AMDAL, izin lingkungan, dan pengelolaan limbah."
+},
+{
+    number: 43,
+    title: "Aspek Keteknikan",
+    context: "Keteknikan ketenagalistrikan meliputi keselamatan dan pemanfaatan jaringan.",
+    actors: ["Pelaku Usaha", "Pemilik Jaringan"],
+    rules: [
+   
+      "(a) Keselamatan ketenagalistrikan",
+        "(b) Pemanfaatan jaringan tenaga listrik untuk telekomunikasi, multimedia, dan informatika"
+    ],
+    details: "Dua aspek teknis yang diatur ketat untuk keamanan dan efisiensi."
+},
+{
+    number: 44,
+    title: "Keselamatan Ketenagalistrikan",
+    context: "Mengatur kewajiban keselamatan untuk semua kegiatan dan instalasi ketenagalistrikan.",
+    actors: ["Pelaku Usaha", "Pemilik Instalasi", "Tenaga Teknik", "Pemerintah"],
+    rules: [
+        "Semua kegiatan wajib memenuhi ketentuan keselamatan",
+     
+     "Tujuan: instalasi andal, aman dari bahaya bagi manusia/makhluk hidup, ramah lingkungan",
+        "Meliputi: standardisasi peralatan, pengamanan instalasi dan pemanfaat listrik",
+        "Setiap instalasi wajib memiliki Sertifikat Laik Operasi (SLO)",
+        "Peralatan wajib memenuhi SNI",
+        "Tenaga teknik wajib memiliki sertifikat kompetensi"
+    ],
+    details: "Ketentuan lebih lanjut tentang keselamatan, SLO, standar, dan kompetensi diatur dengan PP."
+},
+{
+    number: 45,
+    title: "Pemanfaatan Jaringan",
+  
+   context: "Mengizinkan pemanfaatan jaringan listrik untuk telekomunikasi dengan syarat tertentu.",
+    actors: ["Pemilik Jaringan", "Pihak Pemanfaat", "Pemerintah", "Pemerintah Daerah"],
+    rules: [
+        "Pemanfaatan jaringan untuk telekomunikasi, multimedia, informatika diizinkan jika tidak ganggu kelangsungan penyediaan listrik",
+        "Harus dengan persetujuan pemilik jaringan",
+        "Wajib memiliki izin pemanfaatan jaringan dari Pemerintah/pemda"
+    ],
+    details: "Ketentuan lebih lanjut diatur dengan PP.
+ Contoh: fiber optic di tower transmisi."
+},
+{
+    number: 46,
+    title: "Pembinaan dan Pengawasan",
+    context: "Mengatur kewajiban pemerintah melakukan pembinaan dan pengawasan usaha ketenagalistrikan.",
+    actors: ["Pemerintah", "Pemerintah Daerah", "Inspektur Ketenagalistrikan", "PPNS"],
+    rules: [
+        "Pembinaan dan pengawasan mencakup 10 aspek: sumber energi, kecukupan pasokan, persyaratan keteknikan, lingkungan, tarif, mutu, perizinan, dll",
+        "Pengawasan meliputi: inspeksi, minta laporan, teliti laporan, beri sanksi administratif",
+        "Dibantu oleh inspektur ketenagalistrikan dan/atau PPNS"
+ 
+     ],
+    details: "Ketentuan lebih lanjut diatur dengan PP."
+},
+{
+    number: 47,
+    title: "Penyidik PPNS",
+    context: "Memberikan kewenangan penyidikan kepada PPNS khusus ketenagalistrikan.",
+    actors: ["PPNS Ketenagalistrikan", "Penyidik Kepolisian"],
+    rules: [
+        "PPNS tertentu di bidang ketenagalistrikan berwenang menyidik tindak pidana ketenagalistrikan",
+        "Kewenangan: periksa laporan, panggil saksi/tersangka, geledah, periksa sarana, segel/sita bukti, datangkan ahli, tangkap dan tahan",
+        "Wajib beritahu Kepolisian saat mulai 
+ penyidikan"
+    ],
+    details: "Pelaksanaan sesuai peraturan perundang-undangan (KUHAP)."
+},
+{
+    number: 48,
+    title: "Sanksi Administratif",
+    context: "Menetapkan sanksi administratif untuk pelanggaran ketentuan UU ini.",
+    actors: ["Menteri", "Gubernur", "Bupati/Walikota", "Pelanggar"],
+    rules: [
+        "Sanksi untuk pelanggaran Pasal 19 ayat 2, 22, 23 ayat 3, 25 ayat 1, 33 ayat 3, 35, 37, 42, 44 ayat 1",
+        "Jenis sanksi: (a) teguran tertulis, (b) pembekuan sementara, (c) pencabutan izin",
+   
+      "Ditetapkan oleh Menteri/Gubernur/Bupati/Walikota sesuai kewenangan"
+    ],
+    details: "Tata cara pengenaan sanksi diatur dengan PP."
+},
+{
+    number: 49,
+    title: "Pidana Usaha Tanpa Izin",
+    context: "Sanksi pidana untuk usaha penyediaan tanpa izin atau menjual kelebihan listrik tanpa izin.",
+    actors: ["Pelaku Usaha", "Aparat Penegak Hukum"],
+    rules: [
+        "Usaha untuk kepentingan umum tanpa IUPTL: penjara maks 3 tahun dan denda maks Rp2 miliar",
+        "Usaha tanpa 
+ IO: penjara maks 5 tahun dan denda maks Rp4 miliar",
+        "Jual kelebihan listrik tanpa persetujuan: penjara maks 2 tahun dan denda maks Rp2 miliar"
+    ],
+    details: "Sanksi pidana untuk menegakkan kewajiban perizinan."
+},
+{
+    number: 50,
+    title: "Pidana Pelanggaran Keselamatan (Kematian)",
+    context: "Sanksi pidana untuk pelanggaran keselamatan yang mengakibatkan kematian.",
+    actors: ["Pelanggar", "Pemegang Izin", "Korban"],
+    rules: [
+        "Tidak memenuhi keselamatan yang akibatkan kematian: penjara maks 10 tahun 
+ dan denda maks Rp500 juta",
+        "Jika dilakukan pemegang izin: penjara maks 10 tahun dan denda maks Rp1 miliar",
+        "Pemegang izin juga wajib beri ganti rugi kepada korban"
+    ],
+    details: "Tata cara ganti rugi sesuai peraturan perundang-undangan."
+},
+{
+    number: 51,
+    title: "Pidana Pelanggaran Keselamatan dan Pencurian Listrik",
+    context: "Sanksi untuk pelanggaran keselamatan yang ganggu pasokan dan pencurian listrik.",
+    actors: ["Pelanggar", "Aparat Penegak Hukum"],
+    rules: [
+   
+      "Tidak memenuhi keselamatan yang pengaruhi kelangsungan: penjara maks 3 tahun dan denda maks Rp500 juta",
+        "Jika akibatkan putus aliran dan rugikan masyarakat: penjara maks 5 tahun dan denda maks Rp2,5 miliar",
+        "Gunakan listrik bukan haknya (pencurian): penjara maks 7 tahun dan denda maks Rp2,5 miliar"
+    ],
+    details: "Pencurian listrik adalah tindak pidana serius."
+},
+{
+    number: 52,
+    title: "Pidana Tidak Bayar Ganti Rugi Tanah",
+    context: "Sanksi pidana untuk 
+ pelaku usaha yang tidak bayar ganti rugi/kompensasi tanah.",
+    actors: ["Pelaku Usaha", "Pemilik Tanah"],
+    rules: [
+        "Tidak memenuhi kewajiban ganti rugi/kompensasi: penjara maks 5 tahun dan denda maks Rp3 miliar",
+        "Sanksi tambahan: pencabutan IUPTL atau IO"
+    ],
+    details: "Melindungi hak pemilik tanah dari eksploitasi."
+},
+{
+    number: 53,
+    title: "Pidana Jasa Penunjang Tanpa Izin",
+    context: "Sanksi pidana untuk usaha jasa penunjang tanpa izin.",
+    actors: ["Pelaku 
+ Usaha Jasa Penunjang"],
+    rules: ["Usaha jasa penunjang tanpa izin: penjara maks 5 tahun dan denda maks Rp2 miliar"],
+    details: "Memastikan kualitas dan keamanan jasa penunjang."
+},
+{
+    number: 54,
+    title: "Pidana Tanpa SLO dan Peralatan Tidak SNI",
+    context: "Sanksi untuk operasi tanpa SLO dan penjualan peralatan tidak sesuai SNI.",
+    actors: ["Pemilik Instalasi", "Produsen/Penjual Peralatan"],
+    rules: [
+        "Operasi instalasi tanpa SLO: penjara maks 5 tahun dan denda maks Rp500 juta",
+      
+   "Produksi/edar/jual peralatan tidak SNI: penjara maks 5 tahun dan denda maks Rp5 miliar"
+    ],
+    details: "Menjamin keamanan instalasi dan peralatan listrik."
+},
+{
+    number: 55,
+    title: "Pidana Badan Usaha",
+    context: "Mengatur sanksi pidana jika tindak pidana dilakukan oleh badan usaha.",
+    actors: ["Badan Usaha", "Pengurus Badan Usaha"],
+    rules: [
+        "Pidana dikenakan terhadap badan usaha dan/atau pengurusnya",
+        "Jika dikenakan pada badan usaha: denda maksimal ditambah sepertiga"
+  
+     ],
+    details: "Badan usaha dapat dipidana secara korporasi."
+},
+{
+    number: 56,
+    title: "Ketentuan Peralihan",
+    context: "Mengatur masa transisi pemberlakuan UU ini, terutama untuk PLN dan izin-izin lama.",
+    actors: ["PT PLN (Persero)", "Pemerintah", "Pemegang Izin Lama"],
+    rules: [
+        "PT PLN dianggap telah memiliki IUPTL saat UU berlaku",
+        "Pemerintah wajib tata dan tetapkan izin baru PLN dalam 2 tahun",
+        "Izin lama berdasarkan 
+ UU 15/1985 tetap berlaku sampai habis masa berlaku",
+        "Pelaksanaan izin lama disesuaikan dengan UU ini dalam 2 tahun"
+    ],
+    details: "Memberikan waktu adaptasi untuk transisi ke sistem baru."
+},
+// ========================================
+// KELANJUTAN SCRIPT - Tambahkan setelah pasalData yang terpotong
+// ========================================
+
+// Lengkapi Pasal 57 yang terpotong + tambahkan Pasal 58
+{
+    number: 57,
+    title: "Pencabutan UU Lama dan Peraturan Pelaksanaan",
+    context: "Mencabut UU No. 15 Tahun 1985 dan mengatur peraturan pelaksanaan.",
+    actors: ["Pemerintah"],
+    rules: [
+  
+       "UU No. 15 Tahun 1985 tentang Ketenagalistrikan dicabut dan tidak berlaku",
+        "Peraturan pelaksanaan UU 15/1985 tetap berlaku sepanjang tidak bertentangan atau belum diganti",
+        "Peraturan pelaksanaan UU ini harus ditetapkan maks 1 tahun sejak diundangkan"
+    ],
+    details: "Transisi hukum dari rezim lama ke baru dengan masa peralihan yang jelas."
+},
+{
+    number: 58,
+    title: "Mulai Berlaku",
+    context: "UU ini mulai berlaku pada tanggal diundangkan.",
+    actors: 
+ ["Pemerintah", "Seluruh Pemangku Kepentingan"],
+    rules: [
+        "UU ini mulai berlaku pada tanggal diundangkan",
+        "Ditempatkan dalam Lembaran Negara Republik Indonesia"
+    ],
+    details: "Pasal penutup yang menetapkan berlakunya undang-undang secara resmi."
+}
+];
+ // ========================================
+// FUNGSI RENDER PASAL
+// ========================================
+function renderPasalContent() {
+    const container = document.getElementById('pasalContainer');
+    const tocList = document.getElementById('tocList');
+ pasalData.forEach((pasal, index) => {
+        // Buat TOC Item
+        const tocItem = document.createElement('li');
+        tocItem.innerHTML = `<a href="#pasal${pasal.number}">Pasal ${pasal.number}: ${pasal.title}</a>`;
+        tocList.appendChild(tocItem);
+        
+        // Buat Pasal Section
+        const pasalSection = document.createElement('section');
+        pasalSection.className = 'pasal';
+        pasalSection.id = `pasal${pasal.number}`;
+    
+     
+        // Pasal Header
+        pasalSection.innerHTML = `
+            <div class="pasal-header">
+                <div class="pasal-number">Pasal ${pasal.number}</div>
+                <div class="pasal-title">${pasal.title}</div>
+            </div>
+            
+    
+         <div class="card-grid">
+                <div class="info-card context">
+                    <div class="card-label">📘 Context (Konteks)</div>
+                    <div class="card-content">
+          
+               <p>${pasal.context}</p>
+                    </div>
+                </div>
+                
+                <div class="info-card actors">
+                    <div class="card-label">👥 Actors (Pihak Terkait)</div>
+                    <div class="card-content">
+                        <ul>
+                            
+ ${pasal.actors.map(actor => `<li>${actor}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card rules">
+                    <div class="card-label">📜 Rules (Aturan)</div>
+                    <div class="card-content">
+                        <ul>
+                 
+            ${Array.isArray(pasal.rules) 
+                                ?
+ pasal.rules.map(rule => `<li>${rule}</li>`).join('') 
+                                : `<li>${pasal.rules}</li>`}
+                        </ul>
+                    </div>
+                </div>
+    
+             
+                <div class="info-card details">
+                    <div class="card-label">⚠️ Details (Detail Penting)</div>
+                    <div class="card-content">
+      
+                   <p>${pasal.details}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pasal-nav">
+                <a href="#pasal${pasal.number - 1}" class="nav-btn ${index === 0 ? 'disabled' : ''}">
+                    ← Pasal Sebelumnya
+                </a>
+                <a href="#pasal${pasal.number + 1}" class="nav-btn ${index === pasalData.length - 1 ? 'disabled' : ''}">
+ 
+                    Pasal Berikutnya →
+                </a>
+            </div>
+        `;
+ container.appendChild(pasalSection);
+    });
+}
+
+// ========================================
+// FUNGSI SEARCH
+// ========================================
+function searchContent() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+ if (!searchTerm) {
+        alert('Silakan masukkan kata kunci pencarian');
+        return;
+ }
+    
+    // Hapus highlight sebelumnya
+    document.querySelectorAll('.highlight').forEach(el => {
+        el.classList.remove('highlight');
+    });
+ let found = false;
+    let firstMatch = null;
+    
+    // Cari di semua pasal
+    pasalData.forEach(pasal => {
+        const pasalElement = document.getElementById(`pasal${pasal.number}`);
+        const textContent = pasalElement.textContent.toLowerCase();
+        
+        if (textContent.includes(searchTerm)) {
+            if (!found) {
+                firstMatch = pasalElement;
+          
+       found = true;
+            }
+            pasalElement.style.backgroundColor = '#fff9c4';
+            setTimeout(() => {
+                pasalElement.style.backgroundColor = '';
+            }, 3000);
+        }
+    });
+ if (found && firstMatch) {
+        // Scroll ke hasil pertama
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+ // Hitung jumlah hasil
+        const matches = pasalData.filter(pasal => {
+            const content = `${pasal.title} ${pasal.context} ${pasal.rules} ${pasal.details}`.toLowerCase();
+            return content.includes(searchTerm);
+        });
+ alert(`Ditemukan ${matches.length} pasal yang mengandung kata "${searchTerm}"`);
+    } else {
+        alert(`Tidak ditemukan hasil untuk kata kunci "${searchTerm}"`);
+ }
+}
+
+// Event listener untuk Enter key pada search input
+document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        searchContent();
+    }
+});
+ // ========================================
+// SMOOTH SCROLL untuk navigasi TOC
+// ========================================
+document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({ 
+                behavior: 'smooth', 
+  
+               block: 'start' 
+            });
+            
+            // Update URL tanpa reload
+            history.pushState(null, null, `#${targetId}`);
+        }
+    }
+});
+ // ========================================
+// HIGHLIGHT ACTIVE TOC ITEM saat scroll
+// ========================================
+function highlightActiveTOC() {
+    const sections = document.querySelectorAll('.pasal');
+ const tocLinks = document.querySelectorAll('.toc-list a');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.pageYOffset >= sectionTop - 100) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+ tocLinks.forEach(link => {
+        link.style.fontWeight = 'normal';
+        link.style.color = 'var(--secondary)';
+        
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.style.fontWeight = 'bold';
+            link.style.color = 'var(--primary)';
+        }
+    });
+ }
+
+// Debounce function untuk optimasi scroll event
+function debounce(func, wait) {
+    let timeout;
+ return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+ func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+window.addEventListener('scroll', debounce(highlightActiveTOC, 100));
+ // ========================================
+// INISIALISASI saat DOM ready
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    renderPasalContent();
+    
+    // Jika ada hash di URL, scroll ke section tersebut
+    if (window.location.hash) {
+        setTimeout(() => {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+       
+      }
+        }, 100);
+    }
+    
+    // Highlight TOC aktif pertama kali
+    highlightActiveTOC();
+    
+    console.log('✅ UU Ketenagalistrikan berhasil dimuat');
+    console.log(`📊 Total ${pasalData.length} pasal`);
+});
+ // ========================================
+// FITUR TAMBAHAN: Print/Export (Opsional)
+// ========================================
+function printPage() {
+    window.print();
+ }
+
+// Tambahkan tombol print jika diperlukan
+function addPrintButton() {
+    const searchBox = document.querySelector('.search-box');
+    const printBtn = document.createElement('button');
+ printBtn.className = 'btn';
+    printBtn.innerHTML = '🖨️ Cetak';
+    printBtn.onclick = printPage;
+    searchBox.appendChild(printBtn);
+ }
+
+// Uncomment baris di bawah jika ingin menambahkan tombol print
+// addPrintButton();
+}
+    </script>
+</body>
+</html>
